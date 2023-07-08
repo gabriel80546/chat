@@ -19,6 +19,23 @@ char* gerarRespostaAleatoria() {
     return respostas[indiceAleatorio];
 }
 
+// Função para analisar palavras-chave
+int analisarPalavrasChave(char* entrada) {
+    // Verificar palavras-chave na entrada do usuário
+    // Retornar um valor correspondente ao tópico identificado (por exemplo, 1 para clima, 2 para esportes, etc.)
+    // Retornar 0 se nenhuma palavra-chave for encontrada
+    // Implementação fictícia
+    if (strstr(entrada, "clima") != NULL) {
+        return 1;
+    }
+    else if (strstr(entrada, "esportes") != NULL) {
+        return 2;
+    }
+    // ...
+
+    return 0;
+}
+
 // Função para responder à entrada do usuário
 char* responder(char* entrada) {
     // Verificar se a entrada do usuário corresponde a algum padrão predefinido
@@ -26,13 +43,22 @@ char* responder(char* entrada) {
         return "Olá! Como posso ajudar?";
     }
 
-    // Realizar análise de palavras-chave ou análise sintática para identificar o tópico da pergunta
+    // Realizar análise de palavras-chave para identificar o tópico da pergunta
+    int topico = analisarPalavrasChave(entrada);
+
+    // Geração de respostas condicionais com base no tópico identificado
+    if (topico == 1) {
+        return "A previsão do tempo para hoje é ensolarada.";
+    }
+    else if (topico == 2) {
+        return "Qual é o seu time de esportes favorito?";
+    }
+    // ...
 
     // Geração de respostas aleatórias
     char* respostaAleatoria = gerarRespostaAleatoria();
     return respostaAleatoria;
 }
-
 
 int main() {
     srand(time(NULL));
