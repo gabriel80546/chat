@@ -66,7 +66,7 @@ int main() {
     char entrada[256];
     while (1) {
         // Receber a entrada do usuário
-        printf("Usuário: ");
+        printf("Diga: ");
         fgets(entrada, sizeof(entrada), stdin);
 
         // Remover o caractere de nova linha no final da entrada
@@ -84,6 +84,5 @@ int main() {
         // Exibir a resposta para o usuário
         printf("Bot: %s\n", resposta);
     }
-
     return 0;
 }
